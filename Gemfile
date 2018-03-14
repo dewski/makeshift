@@ -23,6 +23,7 @@ gem 'httparty', '0.15.6'
 gem 'omniauth', '1.8.1'
 gem 'omniauth-github', '1.3.0'
 gem 'github-ds', '0.1.0'
+gem 'octicons_helper', '4.2.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

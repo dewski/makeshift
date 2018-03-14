@@ -17,7 +17,7 @@
           <% if Current.user.pagerduty_uid == user.pagerduty_uid %>
             You!
           <% else %>
-            Missing
+            <%= octicon "info" %>
           <% end %>
         <% elsif !user.persisted? %>
           <%= form_for Current.user do |f| %>

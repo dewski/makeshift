@@ -42,6 +42,12 @@ class Pagerduty
     }
   end
 
+  def schedule(schedule_id)
+    GitHub::Result.new {
+      schedule = api("/schedules/#{schedule_id}")
+    }
+  end
+
   private
     def api(path)
       self.class.get(path, headers: {

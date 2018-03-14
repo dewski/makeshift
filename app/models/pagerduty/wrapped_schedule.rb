@@ -10,5 +10,9 @@ class Pagerduty
     def to_partial_path
       "schedules/schedule"
     end
+
+    def to_param
+      pagerduty_id
+    end
   end
 end

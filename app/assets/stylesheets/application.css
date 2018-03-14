@@ -15,4 +15,5 @@
  *= require primer-core/index
  *= require primer-blankslate/index
  *= require primer-alerts/index
+ *= require primer-tooltips/index
  */

@@ -1,3 +1,7 @@
 <li class="Box-row">
-  <%= link_to_if schedule.persisted?, schedule.name, schedule %>
+  <% if schedule.persisted? %>
+    <%= link_to schedule.name, schedule %>
+  <% else %>
+    <%= link_to schedule.name, import_schedule_path(schedule) %>
+  <% end %>
 </li>

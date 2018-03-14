@@ -11,5 +11,9 @@ class Pagerduty
     def to_partial_path
       "users/user"
     end
+
+    def to_param
+      pagerduty_uid
+    end
   end
 end
