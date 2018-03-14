@@ -1,5 +1,5 @@
 class Pagerduty
-  class WrappedUser
+  class WrappedUser < WrappedRecord
     attr_reader :pagerduty_uid, :login, :avatar_url
 
     def initialize(record)
@@ -8,8 +8,8 @@ class Pagerduty
       @avatar_url = record.fetch("avatar_url")
     end
 
-    def persisted?
-      false
+    def to_partial_path
+      "users/user"
     end
   end
 end

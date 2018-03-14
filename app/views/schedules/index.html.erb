@@ -1,11 +1,17 @@
 <div class="Box Box--spacious">
   <div class="Box-header">
-    <h3 class="Box-title">Box-title</h3>
+    <h3 class="Box-title">Schedules</h3>
   </div>
-  <div class="Box-body">Box-body</div>
+  <% if @schedules.ok? %>
     <ul>
-      <li class="Box-row">Box-row</li>
-      <li class="Box-row">Box-row</li>
+      <%= render @schedules.value! %>
     </ul>
-  </div>
+  <% else %>
+    <div class="Box-body">
+      <div class="blankslate">
+        <h3>Could not retrieve schedules.</h3>
+        <p>There may be a problem on PagerDuty's side.</p>
+      </div>
+    </div>
+  <% end %>
 </div>
