@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_current_user, only: :create
+  skip_before_action :authenticate, only: :create
 
   def create
     @user = User.find_or_create_from_github(auth_hash)
