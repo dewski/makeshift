@@ -13,4 +13,6 @@
  *= require_tree .
  *= require_self
  *= require primer-core/index
+ *= require primer-blankslate/index
+ *= require primer-alerts/index
  */
