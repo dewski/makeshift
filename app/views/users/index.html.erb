@@ -1,0 +1,37 @@
+
+<nav aria-label="Breadcrumb">
+  <ol>
+    <li class="breadcrumb-item text-small"><%= link_to 'Makeshift', root_path %></li>
+    <li class="breadcrumb-item breadcrumb-item-selected text-small text-gray" aria-current="page">Users</li>
+  </ol>
+</nav>
+<% if @users.ok? %>
+  <div class="Box">
+    <ul>
+    <% @users.value!.each do |user| %>
+      <li class="Box-row">
+        <img class="avatar avatar-small" width="32" height="32" src="<%= user.avatar_url %>">
+        <%= user.login %>
+
+        <% if Current.user.pagerduty_uid? %>
+          <% if Current.user.pagerduty_uid == user.pagerduty_uid %>
+            You!
+          <% else %>
+            Missing
+          <% end %>
+        <% elsif !user.persisted? %>
+          <%= form_for Current.user do |f| %>
+            <%= f.hidden_field :pagerduty_uid, value: user.pagerduty_uid %>
+            <%= f.submit 'Connect', class: 'btn btn-sm', data: { disable_with: 'Connecting...' } %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="blankslate">
+    <h3>Could not retrieve users</h3>
+    <p>There may be a problem on PagerDuty's side.</p>
+  </div>
+<% end %>

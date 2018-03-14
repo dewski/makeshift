@@ -11,4 +11,8 @@ class User < ApplicationRecord
       user.github_token = auth.credentials.token
     end
   end
+
+  def avatar_url
+    "https://github.com/#{login}.png"
+  end
 end
