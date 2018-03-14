@@ -13,11 +13,14 @@ class Pagerduty
         "Accept" => "application/vnd.pagerduty+json;version=2",
       })
 
-      pagerduty_uids = users["users"].map { |user| user["pagerduty_uid"] }
-      existing_users = User.where(pagerduty_uid: pagerduty_uids).group_by(&:pagerduty_uid)
+      pagerduty_uids = users["users"].map { |user| user["id"] }
+      existing_users = User.where(pagerduty_uid: pagerduty_uids).map do |user|
+        [user.pagerduty_uid, user]
+      end
+      existing_users_table = Hash[existing_users]
 
       users["users"].map do |user|
-        existing_users.fetch(user["pagerduty_uid"]) {
+        existing_users_table.fetch(user["id"]) {
           Pagerduty::WrappedUser.new(user)
         }
       end

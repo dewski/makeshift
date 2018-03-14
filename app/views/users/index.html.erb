@@ -11,7 +11,7 @@
     <% @users.value!.each do |user| %>
       <li class="Box-row">
         <img class="avatar avatar-small" width="32" height="32" src="<%= user.avatar_url %>">
-        <%= user.login %>
+        <%= link_to_if user.persisted?, user.login, user %>
 
         <% if Current.user.pagerduty_uid? %>
           <% if Current.user.pagerduty_uid == user.pagerduty_uid %>

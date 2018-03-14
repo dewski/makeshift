@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :github_uid, presence: true, uniqueness: true
   validates :github_token, presence: true
 
+  has_many :invitations, dependent: :destroy
+
   def self.find_or_create_from_github(auth)
     where(github_uid: auth.uid).first_or_create do |user|
       user.login = auth.info.nickname
