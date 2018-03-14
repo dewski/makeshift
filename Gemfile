@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '5.2.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'httparty', '0.15.6'
 gem 'omniauth', '1.8.1'
 gem 'omniauth-github', '1.3.0'
+gem 'github-ds', '0.1.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
