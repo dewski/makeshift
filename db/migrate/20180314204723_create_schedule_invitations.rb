@@ -8,6 +8,7 @@ class CreateScheduleInvitations < ActiveRecord::Migration[5.2]
       t.timestamps null: false
 
       t.index :user_id
+      t.index [:schedule_id, :user_id], unique: true
     end
   end
 end

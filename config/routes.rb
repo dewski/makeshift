@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     member do
       get :import
     end
+
+    resources :invitations, controller: 'schedule_invitations'
   end
 
   root to: 'schedules#index'

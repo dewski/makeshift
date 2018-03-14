@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_03_14_204824) do
     t.integer "schedule_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["schedule_id", "user_id"], name: "index_schedule_invitations_on_schedule_id_and_user_id", unique: true
     t.index ["user_id"], name: "index_schedule_invitations_on_user_id"
   end
 

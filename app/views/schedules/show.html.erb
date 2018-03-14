@@ -1,1 +1,6 @@
 <%= @schedule.name %>
+
+<%= form_for :invitation, url: schedule_invitations_path(@schedule) do |f| %>
+  <%= f.select(:user_id, User.order(login: :asc).collect {|user| [user.login, user.id] }, { include_blank: true }) %>
+  <%= f.submit %>
+<% end %>

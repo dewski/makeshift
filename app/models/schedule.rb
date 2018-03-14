@@ -9,4 +9,8 @@ class Schedule < ApplicationRecord
       end
     end
   end
+
+  def invite(user)
+    invitations.where(user: user).first_or_create
+  end
 end

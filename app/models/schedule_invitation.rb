@@ -1,9 +1,13 @@
 class ScheduleInvitation < ApplicationRecord
-  belongs_to :creator
+  belongs_to :creator, class_name: 'User'
   belongs_to :user
   belongs_to :schedule
 
-  before_create do
+  validates :creator, presence: true
+  validates :user, presence: true
+  validates :schedule, presence: true
+
+  before_validation(on: :create) do
     self.creator = Current.user
   end
 
