@@ -1,0 +1,7 @@
+{
+  "name": "makeshift",
+  "private": true,
+  "dependencies": {
+    "primer-core": "6.7.0"
+  }
+}
